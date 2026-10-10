@@ -1,0 +1,14 @@
+// Zeek Network Monitoring - Elastic SIEM (Kibana KQL)
+// Data view: filebeat-zeek / filebeat-*
+
+// All network sessions (conn.log)
+event.module:"zeek" and event.dataset:"zeek.connection"
+
+// DNS activity (dns.log)
+event.module:"zeek" and event.dataset:"zeek.dns"
+
+// Intrusion detection events (weird / notice)
+event.category:"intrusion_detection"
+
+// Zeek protocol anomalies only
+event.module:"zeek" and event.dataset:"zeek.weird"
